@@ -1,10 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"github.com/fatih/color"
 	"io/ioutil"
 	"net/http"
-	"encoding/json"
 )
 
 type Soup struct {
@@ -31,8 +32,12 @@ func getSoup() {
 		fmt.Print(err2)
 	}
 
-	fmt.Println("####")
-	fmt.Println(s.Sentence)
+	color.White("******每日一碗毒鸡汤，生活不再迷茫!******")
+	color.Green(s.Sentence)
+	color.Cyan("*******毒鸡汤倾情奉献,如果喜欢, 命令行点赞: chks like %s", s.Id)
+
+	d := color.New(color.FgCyan, color.Bold)
+	d.Printf("This prints bold cyan %s\n", "too!.")
 }
 func main() {
 	fmt.Println("Hello world")
